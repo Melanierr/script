@@ -1,19 +1,25 @@
-while true do 
-    spawn(function() wait()
-        for _,a in pairs(game.Workspace:GetChildren()) do
-            for _,b in pairs(game.ReplicatedStorage.Units.Noobs:GetChildren()) do
-                if a.Name == b.Name then
-                  local hb = a:FindFirstChild("Head")
-                  hb.Size = Vector3.new(6,6,6)
-                  hb.Transparency = 0.6
-                end
-            end
-        end
-    end)
-wait()
+if not game:IsLoaded() then
+   game.Loaded:Wait();
 end
-game.Workspace.ChildAdded:Connect(function(mob)
-  	local hbs = mob:FindFirstChild("Head")
-    	hbs.Size = Vector3.new(6,6,6)
-	hbs.Transparency = 0.6
-end) 
+
+local enemyNames = game:GetService("ReplicatedStorage").Units.Noobs:GetChildren()
+local mapFolder = game:GetService("Workspace").Map
+
+local function PutOnExtend(instance)
+    for _, x in ipairs(enemyNames) do
+        if tostring(x) == instance.Name and instance ~= nil then
+            instance.Head.Transparency = 0.6
+            instance.Head.Size = Vector3.new(4.5, 4.5, 4.5)
+        end
+    end
+end
+
+for _, v in ipairs(workspace:GetChildren()) do
+    task.wait()
+    PutOnExtend(v)
+end
+
+workspace.ChildAdded:Connect(function(v)
+    task.wait()
+    PutOnExtend(v)
+end)
