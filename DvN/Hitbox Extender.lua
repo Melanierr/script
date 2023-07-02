@@ -14,6 +14,6 @@ wait()
 end
 game.Workspace.ChildAdded:Connect(function(mob)
   	local hbs = mob:FindFirstChild("Head")
-    hbs.Size = Vector3.new(6,6,6)
-		hbs.Transparency = 0.6
+    	hbs.Size = Vector3.new(6,6,6)
+	hbs.Transparency = 0.6
 end) 
