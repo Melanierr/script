@@ -11,6 +11,6 @@ end
 while true do
   spawn(function()
       wp.VerifyReload:FireServer()
-      wait(.5)
+      wait(.7)
   end)
 end
