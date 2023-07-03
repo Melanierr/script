@@ -44,7 +44,7 @@ end)
 Sections:NewButton("Infinite Yield", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/we-will-be-back-soon/main/IY.lua", true))()
 end)
-Sections:NewButton("Enemy ESP?", "Sometimes work!!", function()
+Sections:NewButton("Enemy ESP?", "UNSTABLE BRO!!", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/Landmine%20ESP.lua", true))()
 end)
 
