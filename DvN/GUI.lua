@@ -26,15 +26,21 @@ Sections:NewToggle("Day/Night", "", function(state)
     end
 end)
 Sections:NewButton("No Fog", "", function()
-	game:GetService("Lighting").FogEnd = 9e9
+	while true do
+		game:GetService("Lighting").FogEnd = 10000
+		wait()
+	end
 end)
 Sections:NewSlider("Walkspeed", "", 200, 0, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-Sections:NewButton("No Fog", "", function()
+Sections:NewButton("Inf Jump", "", function()
 	game:GetService("UserInputService").JumpRequest:connect(function()
 		if InfiniteJumpEnabled then
 			game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 		end
 	end)
+end)
+Section:NewButton("Infinite Yield", "ButtonInfo", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/we-will-be-back-soon/main/IY.lua", true))()
 end)
