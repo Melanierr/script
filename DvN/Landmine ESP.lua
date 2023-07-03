@@ -4,9 +4,9 @@ function createESP(parent, name)
     hl.Parent = parent
   end
 end
-
+while true do
 game.Workspace.ChildAdded:Connect(function(obj)
       createESP(obj, obj.Name)
 end)
-
-
+wait()
+end
