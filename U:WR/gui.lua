@@ -57,7 +57,7 @@ local Section = Tab3:NewSection("EQUIP JUSTICE SOUL IN LOBBY BEFORE PLAYING")
 
 --// TP
 local Tab4 = Window:NewTab("Teleports")
-local Section = Tab4:NewSection("")
+local Section = Tab4:NewSection("Use in lobby for access to hidden stages")
 Section:NewButton("F1", "", function()
 local h1=game:GetService("Workspace").FlowerBed.Holder
 
@@ -67,4 +67,3 @@ Section:NewButton("F2", "", function()
 local h2 = game:GetService("Workspace").Map.Base.InfiniteModeDoor["Floor thing"]
 hrp.CFrame = h2.CFrame
 end)
-
