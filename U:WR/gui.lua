@@ -6,14 +6,18 @@ local Window = Library.CreateLib("Undertale: WaveRush", "Synapse")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("")
 Section:NewButton("TP to Memory Star", "", function()
+local oldcf = hrp.CFrame
 for _,mem in pairs(game.Workspace:GetDescendants()) do
 if mem.Name == "Memory" or mem.Name == "memory" then
 print("found memory")
 hrp.CFrame = mem.CFrame
+fireproximityprompt(mem.ProximityPrompt, 1, true)
+wait(.5)
+hrp.CFrame = oldcf
 end
 end
 end)
-
+Section:NewLabel("Instant kill most enemies, like fr upgrade ur weapon")
 Section:NewButton("Insta-kill", "", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/U%3AWR/insta-kill.lua", true))()
 end)
