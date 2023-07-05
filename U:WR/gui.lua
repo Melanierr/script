@@ -1,0 +1,16 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Undertale: WaveRush", "Synapse")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("")
+Section:NewButton("GodMode", "", function()
+    while true do
+		game:GetService("Players").LocalPlayer.Character.Dash.Event:FireServer()
+		wait()
+	end
+end)
+Section:NewButton("Insta-kill", "", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/U%3AWR/insta-kill.lua", true))()
+end)
+Section:NewButton("??", "", function()
+    game.StarterGui:SetCore( "ChatMakeSystemMessage",  { Text = "[SYSTEM] NIGGAAAAAAAAAAAAAAAAAA", Color = Color3.fromRGB( 255,0,0 ), Font = Enum.Font.Arial, FontSize = Enum.FontSize.Size24 } )
+end)
