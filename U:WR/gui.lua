@@ -26,7 +26,10 @@ end)
 local Tab1 = Window:NewTab("Player")
 local Section = Tab1:NewSection("")
 Section:NewButton("Jump", "enables jump", function()
+while true do
 plr.Character.Humanoid.JumpPower = 55
+wait()
+end
 end)
 
 Section:NewButton("GodMode", "", function()
@@ -57,13 +60,15 @@ local Section = Tab3:NewSection("EQUIP JUSTICE SOUL IN LOBBY BEFORE PLAYING")
 
 --// TP
 local Tab4 = Window:NewTab("Teleports")
-local Section = Tab4:NewSection("Use in lobby for access to hidden stages")
-Section:NewButton("F1", "", function()
-local h1=game:GetService("Workspace").FlowerBed.Holder
-
-hrp.CFrame = h1.CFrame
-end)
-Section:NewButton("F2", "", function()
-local h2 = game:GetService("Workspace").Map.Base.InfiniteModeDoor["Floor thing"]
+local Section = Tab4:NewSection("")
+Section:NewButton("G", "", function()
+local h2 = game:GetService("Workspace").Map.Base.FlowerBed.Holder.CFrame
 hrp.CFrame = h2.CFrame
 end)
+Section:NewButton("F1", "", function()
+hrp.CFrame = game:GetService("Workspace").FlowerBed.Holder.CFrame
+end)
+Section:NewButton("F2", "", function()
+hrp.CFrame = game:GetService("Workspace").Map.Base.InfiniteModeDoor["Floor thing"].CFrame
+end)
+
