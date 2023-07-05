@@ -1,4 +1,4 @@
-local settings = {repeatamount = 20, exceptions = {"SayMessageRequest", "ShootEvent","BuyItem","LobbySet","ExitSave", "EquipItem","LeaveLobby", "Event"}}
+local settings = {repeatamount = 20, exceptions = {"SayMessageRequest", "ShootEvent","BuyItem","LobbySet","ExitSave", "EquipItem","LeaveLobby", "Event", "ShieldEvent"}}
             local mt = getrawmetatable(game)
             local old = mt.__namecall
             setreadonly(mt, false)
