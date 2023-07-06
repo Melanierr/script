@@ -98,6 +98,9 @@ end)
 
 local Tabss = Window:NewTab("Misc")
 local Section = Tabss:NewSection("Created by Musc")
+Section:NewButton("Refresh Speed", "use if things go too fast", function()
+plr.Character.Humanoid.WalkSpeed = 30
+end)
 Section:NewKeybind("P to toogle UI", "", Enum.KeyCode.P, function()
 	Library:ToggleUI()
 end)
