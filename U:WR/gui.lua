@@ -12,7 +12,8 @@ if mem.Name == "Memory" or mem.Name == "memory" then
 print("found memory")
 hrp.CFrame = mem.CFrame
 fireproximityprompt(mem.ProximityPrompt, 1, true)
-wait(.5)
+fireproximityprompt(mem.ProximityPrompt, 0, true)
+wait(2)
 hrp.CFrame = oldcf
 end
 end
@@ -60,14 +61,32 @@ end)
 
 local Tab3 = Window:NewTab("Justice")
 local Section = Tab3:NewSection("EQUIP JUSTICE SOUL IN LOBBY BEFORE PLAYING")
+Section:NewButton("No Cooldown + Fully Charged", "", function()
+	game:GetService("UserInputService").InputBegan:Connect(function(Key)
+	    if Key.KeyCode == Enum.KeyCode.T then 
+			game:GetService("Players").LocalPlayer.Character.Justice.ShootEvent:FireServer("5")
+	    end
+	end)
+end)
 
+--// Preservance
+
+local Tab4 = Window:NewTab("Preservance")
+local Section = Tab4:NewSection("EQUIP PRESERVANCE SOUL IN LOBBY BEFORE PLAYING")
+Section:NewButton("No Cooldown", "", function()
+	game:GetService("UserInputService").InputBegan:Connect(function(Key)
+	    if Key.KeyCode == Enum.KeyCode.T then 
+			game:GetService("Players").LocalPlayer.Character.Perseverance.ShootEvent:FireServer()
+	    end
+	end)
+end)
 
 --// TP
-local Tab4 = Window:NewTab("Teleports")
-local Section = Tab4:NewSection("")
+
+local Tabs = Window:NewTab("Teleports")
+local Section = Tabs:NewSection("")
 Section:NewButton("G", "", function()
-local h2 = game:GetService("Workspace").Map.Base.FlowerBed.Holder.CFrame
-hrp.CFrame = h2.CFrame
+hrp.CFrame = game:GetService("Workspace").Map.Base.FlowerBed.Holder.CFrame.CFrame
 end)
 Section:NewButton("F1", "", function()
 hrp.CFrame = game:GetService("Workspace").FlowerBed.Holder.CFrame
@@ -76,3 +95,9 @@ Section:NewButton("F2", "", function()
 hrp.CFrame = game:GetService("Workspace").Map.Base.InfiniteModeDoor["Floor thing"].CFrame
 end)
 
+
+local Tabss = Window:NewTab("Misc")
+local Section = Tabss:NewSection("Created by Musc")
+Section:NewKeybind("P to toogle UI", "", Enum.KeyCode.P, function()
+	Library:ToggleUI()
+end)
