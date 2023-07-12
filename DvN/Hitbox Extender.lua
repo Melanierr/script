@@ -7,7 +7,7 @@ local mapFolder = game:GetService("Workspace").Map
 
 local function PutOnExtend(instance)
     for _, x in ipairs(enemyNames) do
-        if tostring(x) == instance.Name and instance.Name ~= "APU" or instance.Name~="Ranger" and instance ~= nil then
+        if tostring(x) == instance.Name and instance.Name ~= "APU" and instance.Name ~="Ranger" and instance ~= nil then
             instance.Head.Transparency = 0.6
             instance.Head.Size = Vector3.new(4.5, 4.5, 4.5)
         end
