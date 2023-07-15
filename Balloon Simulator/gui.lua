@@ -40,6 +40,14 @@ local old = mt.__namecall
     end
     setreadonly(mt, true)
 end)
+Section:NewButton("Get free items [ DON'T USE HOTKEY ]", "", function()
+    plr.Character.HumanoidRootPart.CFrame = CFrame.new(0, 9e9, 0)
+    for _, gui in pairs(game:GetService("Players").obama136.PlayerGui.HUD.Toolbar:GetChildren()) do
+        if gui:IsA("ImageButton") then
+            gui.Visible = true
+        end
+    end
+end)
 Section:NewDropdown("Equip Item", "", {"Slap Hand", "Needle", "Jetpack"}, function(currentOption)
     if currentOption == "Slap Hand" then
         Humanoid:EquipTool(bp.SlapHand)
