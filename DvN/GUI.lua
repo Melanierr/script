@@ -54,5 +54,7 @@ Sections:NewButton("Unlock Hell Mode", "", function()
 	local threatening = game:GetService("ReplicatedStorage").UI.PsyOp
 	local omg = threatening:Clone()
 	omg.Parent = game.Players.LocalPlayer.PlayerGui
+	wait(4)
+	game.Players.LocalPlayer:Kick("ONLY HARDWORK CAN GRANT IT LOL")
 end)
 
