@@ -44,7 +44,12 @@ end)
 Sections:NewButton("Infinite Yield", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/we-will-be-back-soon/main/IY.lua", true))()
 end)
-Sections:NewButton("Enemy ESP", "fixed!!", function()
+Sections:NewButton("Enemy ESP [ Very shitty ]", "fixed!!", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ESP.lua", true))()
+end)
+Sections:NewButton("Unlock Hell Mode", "", function()
+	local threatening = game:GetService("ReplicatedStorage").UI.PsyOp
+	local omg = threatening:Clone()
+	omg.Parent = game.Players.LocalPlayer.PlayerGui
 end)
 
