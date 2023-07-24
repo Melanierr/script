@@ -1,13 +1,7 @@
-local mt = getrawmetatable(game)
-make_writeable(mt)
-
-local namecall = mt.__namecall
-mt.__namecall = newcclosure(function(self, ...)
-   local method = getnamecallmethod()
-   local args = {...}
-
-   if method == "FireServer" and tostring(self) == "VerifyFire" then
-       return
-   end
-   return namecall(self, table.unpack(args))
+local char = game.Players.LocalPlayer.Character
+game:GetService("RunService").Stepped:Connect(function()
+   local tool = char:FindFirstChildWhichIsA("Tool")
+   tool:GetAttributeChangedSignal("Ammo"):Connect(function()
+      tool:SetAttribute("Ammo", math.huge)
+   end)
 end)
