@@ -8,8 +8,10 @@ local function boo(instance)
     end
 end
 for _, v in ipairs(workspace:GetChildren()) do
-    task.wait()
-    boo(v)
+	if v.Name ~= "Ranger" and v.Name ~= "APU" and v.Name ~= "Platform" and v.Name ~= "Tank" then
+	    task.wait()
+	    boo(v)
+	end
 end
 workspace.ChildAdded:Connect(function(v)
 	if v.Name ~= "Ranger" and v.Name ~= "APU" and v.Name ~= "Platform" and v.Name ~= "Tank" then
