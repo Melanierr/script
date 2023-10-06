@@ -22,6 +22,7 @@ end);
 Sectionv:NewButton("Auto remove shields", "ButtonInfo", function()
 	workspace.ChildAdded:Connect(function(a)
 		if (a.Name == "Shielder") then
+			wait(2)
 			a:FindFirstChild("Shield"):Destroy();
 			print("shield removed");
 		end
