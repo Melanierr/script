@@ -4,9 +4,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("KFC", "Sentinel");
 local Tab = Window:NewTab("Main");
 local Section = Tab:NewSection("Hi! Please read notice before using");
-Section:NewButton("Inf Ammo [ bad ]", "", function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ia.lua", true))();
-end);
 Section:NewButton("Damage Multiplier [ x6 ]", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/dm.lua", true))();
 end);
@@ -34,6 +31,9 @@ Sectionv:NewButton("Landmine / Sabotuer mark", "", function()
 			local mark = Instance.new("Highlight", b);
 		end
 	end);
+end);
+Sectionv:NewButton("Crosshair", "", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ch.lua", true))();
 end);
 local Sectionc = Tabv:NewSection("Client modding");
 Sectionc:NewButton("Gun Modding", "yes finally", function()
