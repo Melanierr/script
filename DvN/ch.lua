@@ -1,4 +1,4 @@
-getgenv().CrosshairSettings = {Color = Color3.fromRGB(0, 128, 0), Opacity = 1, Length = 25, Thickness = 1, Offset = 0.8, FollowCursor = true, HideMouseIcon = true}
+getgenv().CrosshairSettings = {Color = Color3.fromRGB(0, 128, 0), Opacity = 1, Length = 25, Thickness = 1.5, Offset = 0.8, FollowCursor = true, HideMouseIcon = true}
 
 
 local player = game:GetService("Players").LocalPlayer
