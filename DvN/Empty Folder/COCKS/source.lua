@@ -38,7 +38,7 @@ local Sectionv2 = Tabv:NewSection("Player")
 Sectionv2:NewButton("Speed", "", function()
 	spawn(function()
 		while true do
-		char:FindFirstChild("Humnaoid").WalkSpeed = 38
+		char:FindFirstChild("Humanoid").WalkSpeed = 38
 		wait()
 		end
 	end)
