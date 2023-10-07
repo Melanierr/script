@@ -35,6 +35,11 @@ Sectionv:NewButton("Crosshair", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ch.lua", true))();
 end);
 local Sectionv2 = Tabv:NewSection("Player")
+Sectionv2:NewButton("Instant Interacting", "", function()
+	game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+	  fireproximityprompt(prompt)
+	end)
+end)
 Sectionv2:NewButton("Speed", "", function()
 	while true do
 		char:FindFirstChild("Humanoid").WalkSpeed = 38
@@ -48,7 +53,7 @@ Sectionv2:NewButton("Fly Jump", "", function()
 	end);
 end);
 
-local Sectionc = Tabv:NewSection("Client modding");
+local Sectionc = Tabv:NewSection("Mod");
 Sectionc:NewButton("No recoil/spread", "", function()
 	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):SetAttribute("BulletSpeed", 9000);
 	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):SetAttribute("Spread", 0);
