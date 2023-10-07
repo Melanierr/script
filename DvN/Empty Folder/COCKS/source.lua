@@ -1,4 +1,3 @@
-local InfiniteJumpEnabled = true;
 local char = game.Players.LocalPlayer.Character;
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
 local Window = Library.CreateLib("KFC", "Sentinel");
@@ -35,15 +34,23 @@ end);
 Sectionv:NewButton("Crosshair", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ch.lua", true))();
 end);
-local Section v2 = Tabv:NewSection("Player")
-Sectionv:NewButton("Speed", "", function()
+local Sectionv2 = Tabv:NewSection("Player")
+Sectionv2:NewButton("Speed", "", function()
 	spawn(function()
 		while true do
-		char:FindFirstChild("Humnaoid").Walkspeed = 38
+		char:FindFirstChild("Humnaoid").WalkSpeed = 38
 		wait()
 		end
 	end)
 			
+end);
+Sectionv2:NewButton("Fly Jump", "", function()
+	local InfiniteJumpEnabled = true;
+	game:GetService("UserInputService").JumpRequest:connect(function()
+		if InfiniteJumpEnabled then
+			game("Players").LocalPlayer.Character("Humanoid"):ChangeState("Jumping");
+		end
+	end);
 end);
 local Sectionc = Tabv:NewSection("Client modding");
 Sectionc:NewButton("Gun Modding", "yes finally", function()
@@ -61,13 +68,6 @@ end);
 Sectionc:NewButton("Jetpack", "", function()
 	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):SetAttribute("RefillRate", 999);
 	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):SetAttribute("JetCooldown", 0);
-end);
-Sectionc:NewButton("Fly Jump", "", function()
-	game:GetService("UserInputService").JumpRequest:connect(function()
-		if InfiniteJumpEnabled then
-			game("Players").LocalPlayer.Character("Humanoid"):ChangeState("Jumping");
-		end
-	end);
 end);
 local Tabm = Window:NewTab("Misc");
 local Section = Tabm:NewSection("World");
