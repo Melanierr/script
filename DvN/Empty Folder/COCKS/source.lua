@@ -35,6 +35,16 @@ end);
 Sectionv:NewButton("Crosshair", "", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/DvN/ch.lua", true))();
 end);
+local Section v2 = Tabv:NewSection("Player")
+Sectionv:NewButton("Speed", "", function()
+	spawn(function()
+		while true do
+		char:FindFirstChild("Humnaoid").Walkspeed = 38
+		wait()
+		end
+	end)
+			
+end);
 local Sectionc = Tabv:NewSection("Client modding");
 Sectionc:NewButton("Gun Modding", "yes finally", function()
 	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool"):SetAttribute("Firerate", 750);
@@ -59,7 +69,7 @@ Sectionc:NewButton("Fly Jump", "", function()
 		end
 	end);
 end);
-local Tabm = Window:NewTab("Misc [ notice ]");
+local Tabm = Window:NewTab("Misc");
 local Section = Tabm:NewSection("World");
 Section:NewToggle("Day/Night", "", function(state)
 	if state then
