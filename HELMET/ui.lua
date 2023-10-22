@@ -34,19 +34,11 @@ local Tab = Window:NewTab("Visual")
 local Section0 = Tab:NewSection("")
 Section0:NewButton("Enemy ESP", "", function()
     local function putOnESP(object)
-        if tostring(object) == "Hostile" or tostring(object) == "TaskForce" then
             local highlight = Instance.new("Highlight", object)
             highlight.FillColor = Color3.fromRGB(255, 255, 255) -- white
             highlight.FillTransparency = 0.6
             highlight.OutlineColor = Color3.fromRGB(255,0,0) -- black
             highlight.OutlineTransparency = 0
-	elseif tostring(object) == "Civilian" then
-	    	local highlights = Instance.new("Highlight", object)
-            highlights.FillColor = Color3.fromRGB(255, 255, 255) -- white
-            highlights.FillTransparency = 0.6
-            highlights.OutlineColor = Color3.fromRGB(0, 0, 0)-- red
-            highlights.OutlineTransparency = 0
-        end
     end
     for _,scan in pairs(game.Workspace:GetChildren()) do
         putOnESP(scan)
