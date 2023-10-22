@@ -18,6 +18,7 @@ end)
 Section:NewButton("Inf Ammo", "", function()
     local plr = game.Players.LocalPlayer
     local char = plr.Character
+    local backpack = plr.Backpack
     local tool = char:FindFirstChildWhichIsA("Tool")
     tool:SetAttribute("Ammo", math.huge)
     tool:SetAttribute("ClipSize", math.huge)
@@ -27,6 +28,9 @@ Section:NewButton("Inf Ammo", "", function()
     end
 end)
 Section:NewButton("Fast Firerate", "", function()
+	local plr = game.Players.LocalPlayer
+    local char = plr.Character
+    local backpack = plr.Backpack
     local tool = char:FindFirstChildWhichIsA("Tool")
     tool:SetAttribute("Firerate", tool:GetAttribute("Firerate") + 100)
     tool:SetAttribute("DamageDecreaseAdd", 0)
@@ -80,7 +84,7 @@ Section1:NewButton("Remove shell casing", "", function()
 	end
 end)
 Section1:NewButton("Remove screen effects", "", function()
-	game.Players.LocalPlayer.PlayerGui.Effects.Enabled = false
+	game.Players.LocalPlayer.PlayerGui:WaitForChild("Effects").Enabled = false
 end)
 Section1:NewButton("Fullbright", "", function()
     local Lighting = game:GetService("Lighting")
