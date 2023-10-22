@@ -6,6 +6,9 @@ local Window = Library.CreateLib("HELMET", "Synapse")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("More will be added!")
 Section:NewButton("Inf Ammo", "", function()
+    local plr = game.Players.LocalPlayer
+    local backpack = plr.Backpack
+    local char = plr.Character
     local tool = char:FindFirstChildWhichIsA("Tool")
     tool:SetAttribute("Ammo", math.huge)
     tool:SetAttribute("ClipSize", math.huge)
@@ -15,6 +18,9 @@ Section:NewButton("Inf Ammo", "", function()
     end
 end)
 Section:NewButton("Fast Firerate", "", function()
+     local plr = game.Players.LocalPlayer
+    local backpack = plr.Backpack
+    local char = plr.Character
     local tool = char:FindFirstChildWhichIsA("Tool")
     tool:SetAttribute("Firerate", tool:GetAttribute("Firerate") + 100)
     tool:SetAttribute("DamageDecreaseAdd", 0)
