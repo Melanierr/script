@@ -8,18 +8,6 @@ local Section = Tab:NewSection("More will be added!")
 Section:NewButton("Auto Finish [ execute when u spawn ] ", "god power", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IrishBaker/REWORK/main/HELMET/AF.lua"))()
 end)
---[[Section:NewButton("DANGEROUS BUTTON!!", ":troll:", function()
-    local Map = game.Workspace.Map
-    local Triggers = Map.Triggers
-    local Opos = char.HumanoidRootPart.Position
-    for _,tr in pairs(Triggers:GetDescendants()) do
-	if tr:IsA("TouchTransmitter") then
-		char:MoveTo(tr.Parent)
-		wait(.1)
-	end
-    end
-    char:MoveTo(Opos)
-end)]]
 Section:NewButton("Bring all NPC", "", function()
     for _,v in pairs(game.Workspace:GetChildren()) do
 	if v.Name =="Civilian" or v.Name == "Hostile" or v.Name =="TaskForce" then
@@ -28,6 +16,8 @@ Section:NewButton("Bring all NPC", "", function()
     end
 end)
 Section:NewButton("Inf Ammo", "", function()
+    local plr = game.Players.LocalPlayer
+    local char = plr.Character
     local tool = char:FindFirstChildWhichIsA("Tool")
     tool:SetAttribute("Ammo", math.huge)
     tool:SetAttribute("ClipSize", math.huge)
@@ -50,19 +40,11 @@ local Tab = Window:NewTab("Visual")
 local Section0 = Tab:NewSection("")
 Section0:NewButton("Enemy ESP", "", function()
     local function putOnESP(object)
-        if tostring(object.Name) == "Hostile" or tostring(object.Name) == "TaskForce" then
             local highlight = Instance.new("Highlight", object)
             highlight.FillColor = Color3.fromRGB(255, 255, 255) -- white
             highlight.FillTransparency = 0.6
             highlight.OutlineColor = Color3.fromRGB(255,0,0) -- black
             highlight.OutlineTransparency = 0
-	elseif tostring(object.Name) == "Civilian" then
-	    	local highlights = Instance.new("Highlight", object)
-            highlights.FillColor = Color3.fromRGB(255, 255, 255) -- white
-            highlights.FillTransparency = 0.6
-            highlights.OutlineColor = Color3.fromRGB(0, 0, 0)-- red
-            highlights.OutlineTransparency = 0
-        end
     end
     for _,scan in pairs(game.Workspace:GetChildren()) do
         putOnESP(scan)
