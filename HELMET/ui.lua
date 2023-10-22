@@ -28,7 +28,7 @@ Section:NewButton("Inf Ammo", "", function()
     end
 end)
 Section:NewButton("Fast Firerate", "", function()
-	local plr = game.Players.LocalPlayer
+    local plr = game.Players.LocalPlayer
     local char = plr.Character
     local backpack = plr.Backpack
     local tool = char:FindFirstChildWhichIsA("Tool")
