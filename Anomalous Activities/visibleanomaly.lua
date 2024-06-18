@@ -3,6 +3,7 @@ game:GetService('RunService').RenderStepped:Connect(function()
         pcall(function()
             if invis.Transparency == 1 then
                 invis.Transparency = 0
+                invis.Material = "Neon"
             end
         end)
     end
