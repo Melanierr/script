@@ -1,11 +1,5 @@
 -- // Variables
 _G.HeadSize = 5
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("A888 - Musc#8707", "Synapse")
-local Tabm = Window:NewTab("Main")
-local Sectionm = Tab:NewSection("")
-local Tabv = Window:NewTab("Visual")
-local Sectionv = Tab:NewSection("??")
 function createMarker(obj)
     bbg = Instance.new("BillboardGui", obj)
     bbg.AlwaysOnTop = true
@@ -19,12 +13,15 @@ function createMarker(obj)
     tl.TextColor3 = Color3.new(240,128,128)
     tl.BackgroundTransparency = 1
     tl.TextScaled = true
-    tl.Size = UDim2.new(1, 0, 1, 0)
-    
+    tl.Size = UDim2.new(1, 0, 1, 0)  
 end
-
 -- // UI Create
-Sectionm:NewButton("Hitbox Extender", "ButtonInfo", function()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("A888 - Musc#8707", "Synapse")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("")
+
+Section:NewButton("Hitbox Extender", "ButtonInfo", function()
     game:GetService('RunService').RenderStepped:connect(function()
         for _,v in next, game.Workspace.mainGame.active_anomaly:GetChildren() do
             pcall(function()
@@ -33,23 +30,25 @@ Sectionm:NewButton("Hitbox Extender", "ButtonInfo", function()
             v.Head.Color = Color3.new(144,238,144)
             v.Head.Material = "Neon"
             v.Head.CanCollide = false
-        end)
-    end
+            end)
+        end
+    end)
 end)
-Sectionm:NewButton("In-Dev", "", function()
-    print("Clicked")
-end)
-Sectionv:NewButton("Anomaly ESP", "holy shit this is not lagging", function()
+local Tab = Window:NewTab("Visual")
+local Section = Tab:NewSection("")
+Section:NewButton("Anomaly ESP", "holy shit this is not lagging", function()
     spawn(function()
         game:GetService("Workspace").mainGame.active_anomaly.ChildAdded:Connect(function(sub)
             createMarker(sub)
         end)
     end)
 end)
-Sectionv:NewButton("Daytime", "", function()
+
+Section:NewButton("Daytime", "", function()
     game.Lighting.TimeOfDay = 12
     game.Lighting.FogEnd = 9e9
 end)
-Sectionv:NewButton("Crosshair", "", function()
+
+Section:NewButton("Crosshair", "", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Melanierr/old-scripts/main/A-888/ch.lua"))()
 end)
