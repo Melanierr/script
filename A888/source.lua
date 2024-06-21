@@ -1,4 +1,6 @@
 -- // Variables
+local char = game.Players.LocalPlayer.Character
+local humanoid = char:FindFirstChild("Humanoid")
 _G.HeadSize = 5
 function createMarker(obj)
     bbg = Instance.new("BillboardGui", obj)
@@ -34,6 +36,13 @@ Section:NewButton("Hitbox Extender", "ButtonInfo", function()
         end
     end)
 end)
+
+Section:NewButton("Walkspeed", "", function()
+	humanoid.WalkSpeed:GetPropertyChangedSignal("Value"):Connect(function()
+		humanoid.WalkSpeed = 27
+	end)
+end)
+
 local Tab = Window:NewTab("Visual")
 local Section = Tab:NewSection("")
 Section:NewButton("Anomaly ESP", "holy shit this is not lagging", function()
