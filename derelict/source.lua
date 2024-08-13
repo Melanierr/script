@@ -5,7 +5,7 @@ local plr = game:GetService("Players").LocalPlayer
 local hitbox = instance.Hitboxes
 local stats = plr.PlayerGui.MainGui.Stats
 local interactable = instance.Interactables
-local veggies = {"BrownMushroom", "Onion", "Rosemary", "Grain", "Potato", "Basil", "Lettuce", "Garlic", "Powerwort", "Soul Shroom", "Translucent Petal", "Fennel", "Nightshade"}
+local veggies = {"BrownMushroom", "Onion", "Rosemary", "Grain", "Potato", "Basil", "Lettuce", "Garlic", "Powerwort", "SoulShroom", "TranslucentPetal", "Fennel", "Nightshade"}
 local enemies = {}
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Dark Soul", "Synapse")
@@ -30,7 +30,7 @@ function createHBox(part, name)
 	a.Adornee = part
 	a.AlwaysOnTop = true
 	a.ZIndex = 0
-	a.Size = part.Size
+	a.Size = Vector3.new(1,1,1)
 	a.Transparency = 0
 	a.Color = BrickColor.new("Lime green")
 end
@@ -44,7 +44,7 @@ function createBG(part, name)
     b.LightInfluence = 1
     b.StudsOffset = Vector3.new(0, 5, 0)
     b.Size = UDim2.new(0, 30, 0, 30)
-    c.Text = name:lower()
+    c.Text = name
     c.TextColor3 = Color3.fromRGB(255, 255, 255)
     c.BackgroundTransparency = 1
     c.TextScaled = false
@@ -82,14 +82,12 @@ vsection:NewButton("Find chest", "", function()
 		end)
 	end
 end)
-vsection:NewButton("Forage ESP", "ButtonInfo", function()
+vsection:NewButton("Find forageables", "", function()
     for _,int in ipairs(interactable:GetDescendants()) do 
-		pcall(function()
-			if table.find(veggies, int.Name) and not int:IsA("Model") then
+			if table.find(veggies, int.Name) then
 				createHBox(int, int.Name)
 				createBG(int, int.Name)
 			end
-		end)
 	end
 end)
 vsection:NewButton("Clear all esp", "", function()
