@@ -5,7 +5,7 @@ local plr = game:GetService("Players").LocalPlayer
 local hitbox = instance.Hitboxes
 local stats = plr.PlayerGui.MainGui.Stats
 local interactable = instance.Interactables
-local veggies = {"BrownMushroom", "Onion", "Rosemary", "Grain", "Potato", "Basil", "Lettuce", "Garlic", "Powerwort", "SoulShroom", "TranslucentPetal", "Fennel", "Nightshade"}
+local veggies = {"BrownMushroom", "Onion", "Rosemary", "Grain", "Potato", "Basil", "Lettuce", "Garlic", "Powerwort", "SoulShroom", "FieldFlower", "Fennel", "Nightshade"}
 local enemies = {}
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Dark Soul", "Synapse")
@@ -24,15 +24,17 @@ end
 
 -- // Function
 function createHBox(part, name)
-	local a = Instance.new("BoxHandleAdornment")
-	a.Name = name
-	a.Parent = part
-	a.Adornee = part
-	a.AlwaysOnTop = true
-	a.ZIndex = 0
-	a.Size = Vector3.new(1,1,1)
-	a.Transparency = 0
-	a.Color = BrickColor.new("Lime green")
+	pcall(function()
+		local a = Instance.new("BoxHandleAdornment")
+		a.Name = name
+		a.Parent = part
+		a.Adornee = part
+		a.AlwaysOnTop = true
+		a.ZIndex = 0
+		a.Size = Vector3.new(1,1,1)
+		a.Transparency = 0
+		a.Color = BrickColor.new("Lime green")
+	end)
 end
 function createBG(part, name)
 	local b = Instance.new("BillboardGui", part)
@@ -50,8 +52,19 @@ function createBG(part, name)
     c.TextScaled = false
     c.Size = UDim2.new(1.5, 0, 1.5, 0)  
 end
-local function changeWalkspeed(speed)
-	plr.Character.Humanoid.WalkSpeed = speed
+function removeESP()
+	for _,remove in pairs(interactable:GetDescendants()) do 
+		if remove:IsA("BillboardGui") or remove:IsA("BoxHandleAdornment") then
+			remove:Destroy()
+			wait(.1)
+		end
+	end
+	for _,removee in pairs(map.Objects:GetDescendants()) do 
+		if removee:IsA("BillboardGui") or removee:IsA("BoxHandleAdornment") then
+			removee:Destroy()
+			wait(.1)
+		end
+	end
 end
 -- // 
 msection:NewToggle("Bonsai", "", function(state)
@@ -73,6 +86,7 @@ msection:NewSlider("Agility [ In Combat ]", "", 500, 200, function(agl)
     stats:SetAttribute("Agility", agl)
 end)
 vsection:NewButton("Find chest", "", function()
+	removeESP()
     for _,chest in pairs(map.Objects:GetChildren()) do
 		pcall(function()
 			if chest.Name == "Chest" then
@@ -83,6 +97,7 @@ vsection:NewButton("Find chest", "", function()
 	end
 end)
 vsection:NewButton("Find forageables", "", function()
+	removeESP()
     for _,int in ipairs(interactable:GetDescendants()) do 
 			if table.find(veggies, int.Name) then
 				createHBox(int, int.Name)
@@ -91,16 +106,7 @@ vsection:NewButton("Find forageables", "", function()
 	end
 end)
 vsection:NewButton("Clear all esp", "", function()
-	for _,esp in pairs(map.Objects:GetDescendants()) do
-		if esp:IsA("BillboardGui") or esp:IsA("BoxHandleAdornment") then
-			esp:Destroy()
-		end
-	end
-	for _,esp in pairs(interactable:GetDescendants()) do
-		if esp:IsA("BillboardGui") or esp:IsA("BoxHandleAdornment") then
-			esp:Destroy()
-		end
-	end
+	removeESP()
 end)
 vsection:NewButton("Remove loading screen", "", function()
    plr.PlayerGui.MainGui.Loading.Visible = false
