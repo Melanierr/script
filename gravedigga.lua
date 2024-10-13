@@ -34,7 +34,7 @@ end)
 Section:NewButton("Wallhack", "", function()
     rs.RenderStepped:Connect(function()
         for _,hw in pairs(plr:GetPlayers()) do
-            if hw.Name ~= plr.LocalPlayer.Name and hw.Team ~= plr.LocalPlayer.Team and hw.Character.Humanoid.Health == 0 then
+            if hw.Name ~= plr.LocalPlayer.Name and hw.Team ~= plr.LocalPlayer.Team and hw.Character.Humanoid.Health ~= 0 then
                 pcall(function()
                     if hw.Character.Head:FindFirstChildWhichIsA("BoxHandleAdornment") and hw.Character.Torso:FindFirstChildWhichIsA("BoxHandleAdornment") then
                         wallhack(hw.Character:FindFirstChild("Head"))
