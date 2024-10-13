@@ -1,20 +1,43 @@
-local plr = game:GetService("Players").LocalPlayer
+local plr = game:GetService('Players')
+local rs = game:GetService('RunService')
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Grave Digger", "DarkTheme")
+local Window = Library.CreateLib("Grave Digger", "Synapse")
 local Tab = Window:NewTab("Main")
 local Section = Tab:NewSection("")
-Section:NewButton("Remove camera fog", "ButtonInfo", function()
-    game.Workspace.Camera.fakesky:Destroy()
+--// function
+function wallhack(obj)
+    local wh = Instance.new("BoxHandleAdornment")
+    wh.Parent = obj
+    wh.Adornee = obj
+    wh.AlwaysOnTop = true
+    wh.ZIndex = 0
+    wh.Size = obj.Size
+    wh.Transparency = 0.8
+end
+--// buttons
+Section:NewButton("Friendly Fire", "", function()
+    plr.LocalPlayer.Character.Parent = game.Workspace
 end)
-Section:NewButton("Hitbox Extender", "ButtonInfo", function()
-    game:GetService('RunService').RenderStepped:connect(function()
-        for _,plr in next, game:GetService('Players'):GetPlayers() do
-            if plr.Name ~= game:GetService("Players").LocalPlayer.Name and plr.Team ~= game:GetService("Players").LocalPlayer.Team then
+Section:NewButton("Hitbox Expander", "", function()
+    rs.RenderStepped:Connect(function()
+        for _,plrs in next, game:GetService('Players'):GetPlayers() do
+            if plrs.Name ~= plr.LocalPlayer.Name and plrs.Team ~= plr.LocalPlayer.Team then
                 pcall(function()
-                    local hl = Instance.new("Highlight", v)
-                    plr.Character.HeadHitbox.Material = "Plastic"
-                    plr.Character.HeadHitbox.Transparency = 0.5
-                    plr.Character.HeadHitbox.Size = Vector3.new(4,4,4)
+                    plrs.Character.HeadHitbox.Material = "Plastic"
+                    plrs.Character.HeadHitbox.Transparency = 0.5
+                    plrs.Character.HeadHitbox.Size = Vector3.new(4,4,4)
+                end)
+            end
+        end
+    end)
+end)
+Section:NewButton("Wallhack", "", function()
+    rs.RenderStepped:Connect(function()
+        for _,hw in pairs(plr:GetPlayers()) do
+            if hw.Name ~= plr.LocalPlayer.Name and hw.Team ~= plr.LocalPlayer.Team then
+                pcall(function()             
+                    wallhack(hw.Character:FindFirstChild("Head"))
+                    wallhack(hw.Character:FindFirstChild("Torso"))
                 end)
             end
         end
