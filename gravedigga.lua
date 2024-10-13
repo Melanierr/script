@@ -19,12 +19,11 @@ Section:NewButton("Friendly Fire", "", function()
     plr.LocalPlayer.Character.Parent = game.Workspace
 end)
 Section:NewButton("Hitbox Expander", "", function()
-    rs.RenderStepped:Connect(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
         for _,plrs in next, game:GetService('Players'):GetPlayers() do
-            if plrs.Name ~= plr.LocalPlayer.Name and plrs.Team ~= plr.LocalPlayer.Team then
+            if plrs.Team ~= plr.LocalPlayer.Team then
                 pcall(function()
-                    plrs.Character.HeadHitbox.Material = "Plastic"
-                    plrs.Character.HeadHitbox.Transparency = 0.5
+                    plrs.Character.HeadHitbox.Transparency = 0.8
                     plrs.Character.HeadHitbox.Size = Vector3.new(4,4,4)
                 end)
             end
