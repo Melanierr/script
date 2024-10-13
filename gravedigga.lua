@@ -12,7 +12,6 @@ Section:NewButton("Hitbox Extender", "ButtonInfo", function()
             if plr.Name ~= game:GetService("Players").LocalPlayer.Name and plr.Team ~= game:GetService("Players").LocalPlayer.Team then
                 pcall(function()
                     local hl = Instance.new("Highlight", v)
-                    plr.Character:FindFirstChild("helmet"):Destroy()
                     plr.Character.HeadHitbox.Material = "Plastic"
                     plr.Character.HeadHitbox.Transparency = 0.5
                     plr.Character.HeadHitbox.Size = Vector3.new(4,4,4)
