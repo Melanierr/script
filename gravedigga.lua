@@ -1,14 +1,31 @@
 local plr = game:GetService('Players')
 local rs = game:GetService('RunService')
+local lg = game:GetService('Lighting')
+local ws = game:GetService('Workspace')
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Grave Digger", "Synapse")
 local Tab = Window:NewTab("Main")
-local Section = Tab:NewSection("")
---// buttons
-Section:NewButton("Friendly Fire", "", function()
+local Section1 = Tab:NewSection("Visual")
+Section1:NewButton("Fullbright", "", function()
+    lg.Brightness = 2
+	lg.ClockTime = 14
+	lg.FogEnd = 100000
+	lg.GlobalShadows = false
+	lg.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+end)
+Section1:NewButton("Unlimited Vision", "", function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        ws.Camera:FindFirstChild("fakesky"):Destroy()
+        wait(5)
+    end)
+end)
+
+
+local Section2 = Tab:NewSection("Cheats")
+Section2:NewButton("Friendly Fire", "", function()
     plr.LocalPlayer.Character.Parent = game.Workspace
 end)
-Section:NewButton("Hitbox Expander", "", function()
+Section2:NewButton("Hitbox Expander", "", function()
     game:GetService("RunService").RenderStepped:Connect(function()
         for _,plrs in next, game:GetService('Players'):GetPlayers() do
             if plrs.Team ~= plr.LocalPlayer.Team then
@@ -21,6 +38,6 @@ Section:NewButton("Hitbox Expander", "", function()
         end
     end)
 end)
-Section:NewButton("Wallhack", "", function()
+Section2:NewButton("Wallhack", "", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Melanierr/script/main/Misc/synapsesp.lua"))()
 end)
