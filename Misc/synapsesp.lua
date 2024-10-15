@@ -11,8 +11,8 @@ if v.Name ~= lplr.Name and v.Team ~= lplr.Team then
     local BoxOutline = Drawing.new("Square")
     BoxOutline.Visible = false
     BoxOutline.Color = Color3.new(255,0,0)
-    BoxOutline.Thickness = 1
-    BoxOutline.Transparency = 1
+    BoxOutline.Thickness = 0.7
+    BoxOutline.Transparency = 0
     BoxOutline.Filled = false
 
     local Box = Drawing.new("Square")
@@ -69,8 +69,8 @@ game.Players.PlayerAdded:Connect(function(v)
     local BoxOutline = Drawing.new("Square")
     BoxOutline.Visible = false
     BoxOutline.Color = Color3.new(255,0,0)
-    BoxOutline.Thickness = 1
-    BoxOutline.Transparency = 1
+    BoxOutline.Thickness = 0.7
+    BoxOutline.Transparency = 0
     BoxOutline.Filled = false
 
     local Box = Drawing.new("Square")
