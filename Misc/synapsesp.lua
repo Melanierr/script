@@ -65,6 +65,7 @@ end
 end
 
 game.Players.PlayerAdded:Connect(function(v)
+    if v.Name ~= lplr.Name and v.Team ~= lplr.Team then
     local BoxOutline = Drawing.new("Square")
     BoxOutline.Visible = false
     BoxOutline.Color = Color3.new(255,0,0)
@@ -118,4 +119,5 @@ game.Players.PlayerAdded:Connect(function(v)
         end)
     end
     coroutine.wrap(boxesp)()
+    end
 end)
