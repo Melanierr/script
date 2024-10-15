@@ -15,7 +15,9 @@ Section1:NewButton("Fullbright", "", function()
 end)
 Section1:NewButton("Unlimited Vision", "", function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        ws.Camera:FindFirstChild("fakesky"):Destroy()
+	if ws.Camera.fakesky then
+        	ws.Camera:FindFirstChild("fakesky"):Destroy()
+	end
         wait(5)
     end)
 end)
