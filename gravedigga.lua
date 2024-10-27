@@ -33,7 +33,7 @@ Section2:NewButton("Hitbox Expander", "", function()
             if plrs.Team ~= plr.LocalPlayer.Team then
                 pcall(function()
                     plrs.Character.HeadHitbox.Transparency = 0.9
-                    plrs.Character.HeadHitbox.Size = Vector3.new(4.5,4.5,4.5)
+                    plrs.Character.HeadHitbox.Size = Vector3.new(3.5,4,3.5)
                     plrs.Character.HeadHitbox.CanCollide = false
                 end)
             end
