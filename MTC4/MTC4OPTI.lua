@@ -1,4 +1,5 @@
 local Terrain = workspace:FindFirstChildOfClass('Terrain')
+local Lighting = game.Lighting
 	Terrain.WaterWaveSize = 0
 	Terrain.WaterWaveSpeed = 0
 	Terrain.WaterReflectance = 0
