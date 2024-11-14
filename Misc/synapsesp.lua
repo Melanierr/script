@@ -19,7 +19,7 @@ if v.Name ~= lplr.Name and v.Team ~= lplr.Team then
     Box.Visible = false
     Box.Color = Color3.new(255,1,1)
     Box.Thickness = 1
-    Box.Transparency = 1
+    Box.Transparency = 0
     Box.Filled = false
 
     function boxesp()
