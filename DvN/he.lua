@@ -1,21 +1,20 @@
-local eF = game:GetService("ReplicatedStorage").Units.Noobs:GetChildren()
-local function boo(instance)
-    for _, x in ipairs(eF) do -- checks if it matches the name
-        if tostring(x) == instance.Name and instance ~= nil then
-            instance.Head.Transparency = 0.8
-            instance.Head.Size = Vector3.new(5, 4.5, 5)
-        end
+-- Hitbox Expander DVN
+_G.X = 5
+_G.Y = 5
+_G.Z = 5
+local exclusion = {"apu", "platform", "ranger", "tank"}
+local spawnFolder = game:GetService("Workspace")
+local function applyH(obj)
+    obj:FindFirstChild("Head").Size = Vector3.new(_G.X, _G.Y, _G.Z)
+    obj:FindFirstChild("Head").Transparency = 0.5
+end
+spawnFolder.ChildAdded:Connect(function(instance)
+    if table.find(exclusion, string.lower(instance.Name)) then 
+        applyH(instance)
     end
 end
-for _, v in ipairs(workspace:GetChildren()) do
-	if v.Name ~= "Ranger" and v.Name ~= "APU" and v.Name ~= "Platform" and v.Name ~= "Tank" then
-	    task.wait()
-	    boo(v)
-	end
-end
-workspace.ChildAdded:Connect(function(v)
-	if v.Name ~= "Ranger" and v.Name ~= "APU" and v.Name ~= "Platform" and v.Name ~= "Tank" then
-	    wait(0.5)
-	    boo(v)
+for _, cr in pairs(spawnFolder:GetChildren()) do
+    if table.find(exclusion, string.lower(instance.Name)) then 
+        applyH(instance)
     end
-end)
+end
