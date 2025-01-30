@@ -61,7 +61,7 @@ local function ESP(part)
     if part:FindFirstChild("Armor") then
         part.Armor:GetPropertyChangedSignal("Value"):Connect(function()
             armor = math.floor(part.Armor.Value)
-            c.Text = "Armor: " .. math.floor(armor) .. " Posture: " .. posture .. " MaxPosture: " .. mposture
+            c.Text = "Armor: " .. math.floor(armor) .. " Posture: " .. math.floor(posture) .. " MaxPosture: " .. mposture
         end)
     end
 
@@ -69,7 +69,7 @@ local function ESP(part)
         part.BreakMeter:GetPropertyChangedSignal("Value"):Connect(function()
             posture = part.BreakMeter.Value
             mposture = part.BreakMeter.MaxValue
-            c.Text = "Armor: " .. math.floor(armor) .. " \nPosture: " .. posture .. " MaxPosture: " .. mposture
+            c.Text = "Armor: " .. math.floor(armor) .. " Posture: " .. math.floor(posture) .. " MaxPosture: " .. mposture
         end)
     end
 end
