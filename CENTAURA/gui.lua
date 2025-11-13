@@ -1,5 +1,5 @@
 -- why are you here??
-
+-- written by Musc#8707
 local v0 = string.char;
 local v1 = string.byte;
 local v2 = string.sub;
