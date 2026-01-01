@@ -8,12 +8,12 @@ end
 
 local function esp(obj)
     local a = Instance.new("BoxHandleAdornment")
-    a.Name = "Torso"
+    a.Name = obj.Name
     a.Parent = espholder
     a.Adornee = obj
     a.AlwaysOnTop = true
-    a.Color3 = Color3.fromRGB(255, 0, 0)
-    a.Transparency = 0.7
+    a.Color3 = Color3.fromRGB(18, 227, 220)
+    a.Transparency = 0.8
     a.ZIndex = 0
 end
 
