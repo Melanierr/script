@@ -14,7 +14,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 
     firingTask = task.spawn(function()
         while holding do
-            ByteNetReliable:FireServer(buffer.fromstring("\034"))
+            ByteNetReliable:FireServer(buffer.fromstring("\036"))
             print("holding")
             task.wait(0.03)
         end
