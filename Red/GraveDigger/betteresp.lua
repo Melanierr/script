@@ -23,8 +23,8 @@ local function delete()
     end
 end
 
-uis.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.J then
+uis.InputBegan:Connect(function(input, gameProcessed)
+    if input.KeyCode == Enum.KeyCode[_G.keyBind] then
         delete()
         local plrteam = lplr.Character.Parent
         for _,hitbox in pairs(game.Workspace:GetDescendants()) do
