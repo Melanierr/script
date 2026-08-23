@@ -37,4 +37,4 @@ uis.InputBegan:Connect(function(input, gameProcessed)
 		end
 	end
 end);
-print("Script is loaded");
+print("Script is loaded\nMADE BY MUSC");
