@@ -11,13 +11,14 @@ local function esp(obj)
     esp.Transparency = 0.5
     esp.ZIndex = 0
     esp.Size = Vector3.new(1, 1, 1)
-    warn("created")
+    warn("oo put marker on this " .. obj.Name)
 end
 
 local function delete()
     for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
         if v:IsA("BoxHandleAdornment") and v.Parent.Parent.Humanoid.Health == 0 then
             v:Destroy()
+            wait()
             warn("deleted")
         end
     end
@@ -30,7 +31,7 @@ uis.InputBegan:Connect(function(input, gameProcessed)
         for _,hitbox in pairs(game.Workspace:GetDescendants()) do
             if hitbox.Name == "HeadHitbox" and hitbox.Parent.Parent.Name ~=  plrteam.Name then
                 local humanoid = hitbox.Parent.Humanoid
-                if humanoid.Health > 0 and not hitbox:FindFirstChild("##ss") then
+                if humanoid and humanoid.Health > 0 and not hitbox:FindFirstChild("##ss") then
                     hitbox.Size = _G.headSize
                     hitbox.Transparency = 0.5
                     esp(hitbox)    
@@ -39,3 +40,4 @@ uis.InputBegan:Connect(function(input, gameProcessed)
         end
     end
 end)
+print("Script is loaded")
