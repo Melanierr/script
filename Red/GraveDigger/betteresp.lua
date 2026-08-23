@@ -7,7 +7,7 @@ local function esp(obj)
     esp.Adornee = obj
     esp.Name = "##ss"
     esp.AlwaysOnTop = true
-    esp.Color3 = Color3.fromRGB(255, 0, 0)
+    esp.Color3 = _G.espColor
     esp.Transparency = 0.5
     esp.ZIndex = 0
     esp.Size = Vector3.new(1, 1, 1)
