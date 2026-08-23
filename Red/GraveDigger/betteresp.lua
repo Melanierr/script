@@ -22,6 +22,7 @@ local function delete()
 	end
 end
 uis.InputBegan:Connect(function(input, gameProcessed)
+	if gameProcessed then return end
 	if (input.KeyCode == Enum.KeyCode[_G.keyBind]) then
 		delete();
 		local plrteam = lplr.Character.Parent;
