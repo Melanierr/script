@@ -7,7 +7,7 @@ local function esp(obj)
 	esp.Name = "##ss";
 	esp.AlwaysOnTop = true;
 	esp.Color3 = _G.espColor;
-	esp.Transparency = 0.5;
+	esp.Transparency = _G.transparency;
 	esp.ZIndex = 0;
 	esp.Size = Vector3.new(1, 1, 1);
 	warn("oo put marker on this " .. obj.Name);
@@ -31,7 +31,7 @@ uis.InputBegan:Connect(function(input, gameProcessed)
 				local humanoid = hitbox.Parent.Humanoid;
 				if (humanoid and (humanoid.Health > 0) and not hitbox:FindFirstChild("##ss")) then
 					hitbox.Size = _G.headSize;
-					hitbox.Transparency = 0.5;
+					hitbox.Transparency = 0.9;
 					esp(hitbox);
 				end
 			end
