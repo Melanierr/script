@@ -31,10 +31,10 @@ local function scanRoom(targetRoom)
 end
 
 local roomAdded = room.ChildAdded:Connect(function(newRoom)
-    scanRoom(newRoom)
     warn("room added")
-end)
+    scanRoom(newRoom)
 
+end)
 
 local entityAdded = workspace.ChildAdded:Connect(function(object)
     warn("detected " .. object.Name)
@@ -48,4 +48,4 @@ local entityAdded = workspace.ChildAdded:Connect(function(object)
     end
 end)
 
-warn("script ran")
+warn("script executed")
