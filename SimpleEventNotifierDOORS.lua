@@ -21,9 +21,12 @@ end
 
 local function addESP(object)
     local newHighlight = Instance.new("Highlight")
+	newHighlight.Parent = object
     newHighlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
     newHighlight.FillColor = Color3.fromRGB(255, 255, 0) 
-    newHighlight.Parent = object
+	newHighlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+    newHighlight.FillTransparency = 0.6
+	newHighlight.OutlineTransparency = 0
     warn("created highlight")
 end
 
