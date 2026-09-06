@@ -1,11 +1,16 @@
 local entities = workspace.LiveEntities
 local room = workspace.CurrentRooms
 local lplr = game.Players.LocalPlayer
+local notifysound = Instance.new("Sound")
 local loot = {"GoldPile", "PaperPlane", "LaserPointer", "StardustPickup", "Pizza", "Bandage", "Lockpick", "Candle", "KeyObtain", "Smoothie", "Leftovers"}
 local event = {"DronesStampede", "BashMoving", "AmbushMoving", "RushMoving", "Scribbles", "LeverForGate", "Alma", "Ransom"}
 local entity = {"TellerEntity", "TellerRig"}
 
+notifysound.SoundId = "rbxassetid://18432812022"
+notifysound.Parent = workspace
+
 local function announce(title, message)
+	notifysound:Play()
     game.StarterGui:SetCore("SendNotification", {
         Title = title,
         Text = message,
@@ -31,10 +36,10 @@ local function scanRoom(targetRoom)
 end
 
 local roomAdded = room.ChildAdded:Connect(function(newRoom)
-    warn("room added")
     scanRoom(newRoom)
-
+    warn("room added")
 end)
+
 
 local entityAdded = workspace.ChildAdded:Connect(function(object)
     warn("detected " .. object.Name)
@@ -48,4 +53,4 @@ local entityAdded = workspace.ChildAdded:Connect(function(object)
     end
 end)
 
-warn("script executed")
+warn("script ran")
