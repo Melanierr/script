@@ -1,3 +1,3 @@
 # REWORK
-This tree is supposed to be for most of my old scripts and new scripts coming on the near future!!!
-Join my discord : https://discord.gg/5XNHbvjVeB
+This repo is an archive of all my works since 2021
+Join my discord : discord.gg/c3JE9uJ5RR
