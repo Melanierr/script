@@ -37,5 +37,6 @@ uis.InputBegan:Connect(function(input, gameProcessed)
 			end
 		end
 	end
+	if input.KeyCode == Enum.KeyCode.K then delete() end
 end);
 print("Script is loaded\nMADE BY MUSC");
